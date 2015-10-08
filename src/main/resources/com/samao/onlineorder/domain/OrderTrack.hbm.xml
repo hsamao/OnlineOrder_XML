@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.samao.onlineorder.domain">
+    <class name="OrderTrack" table="ORDER_TRACK">
+        <id name="id" column="ID" type="long">
+            <generator class="identity"/>
+        </id>
+        <property name="trackingDate" column="TRACKING_DATE" type="java.util.Date"/>
+        <property name="current" column="CURRENT" type="boolean"/>
+
+
+
+        <!--<property name="orderStatus" column="ORDER_STATUS">
+            <type name="org.hibernate.type.EnumType">
+                <param name="className">com.samao.onlineorder.domain.OrderStatus</param>
+                <param name="usedName">true</param>
+            </type>
+        </property>-->
+
+    </class>
+</hibernate-mapping>

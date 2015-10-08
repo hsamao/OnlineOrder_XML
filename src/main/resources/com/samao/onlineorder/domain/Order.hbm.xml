@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.samao.onlineorder.domain">
+    <class name="Order" table="ORDER_TABLE">
+        <id name="id" column="ID" type="long">
+            <generator class="identity"/>
+        </id>
+        <property name="createDate" column="CREATE_DATE" type="java.util.Date"/>
+        <many-to-one name="customer" column="CUSTOMER_ID" class="Customer"/>
+
+        <list name="orderItemList" cascade="save-update" inverse="true" lazy="true" fetch="select">
+            <key column="ORDER_ITEM_LIST_ID"/>
+            <list-index column="IDX"/>
+            <one-to-many class="OrderItem"/>
+        </list>
+
+    </class>
+</hibernate-mapping>

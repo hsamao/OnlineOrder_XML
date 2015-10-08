@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.samao.onlineorder.domain">
+    <class name="OrderItem" table="ORDER_ITEM">
+        <id name="id" column="ID">
+            <generator class="identity"/>
+        </id>
+
+        <!--<many-to-one name="order" column="ORDER_ID" class="Order" not-null="true"/>-->
+        <many-to-one name="item" column="ITEM_ID" class="Item" not-null="true"/>
+
+        <property name="price" column="PRICE" not-null="true" type="big_decimal"/>
+
+    </class>
+</hibernate-mapping>
